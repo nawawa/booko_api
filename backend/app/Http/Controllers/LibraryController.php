@@ -57,10 +57,11 @@ class LibraryController extends Controller
     /**
      * ライブラリー削除
      *
+     * @param Library $library
      * @param Request $request
-     * @return void
+     * @return boolean
      */
-    public function delete(Library $library, Request $request)
+    public function delete(Library $library, Request $request): bool
     {
         return $this->service->deleteLibrary($library);
     }

@@ -79,8 +79,12 @@ class LibraryTest extends LibraryTestCase
     /**
      * @test
      */
-    // public function ライブラリー削除()
-    // {
-        
-    // }
+    public function ライブラリー削除()
+    {
+        $response = $this->deleteJson($this->api_route . '/' . $this->library->uuid);
+        $response
+            ->assertStatus(200);
+
+        $this->assertDatabaseMissing('libraries', $this->library->toArray());
+    }
 }
