@@ -17,4 +17,14 @@ class Library extends Model
         'location',
         'code',
     ];
+
+    /**
+     * モデルのルートキーの取得
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'uuid';
+    }
 }

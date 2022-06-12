@@ -16,11 +16,13 @@ class LibraryController extends Controller
     }
 
     /**
-     * ライブラリー新規作成
+     * [POST]ライブラリー新規作成
      *
+     * @param Library $library
      * @param Request $request
+     * @return LibraryResource
      */
-    public function create(Library $library, Request $request): object
+    public function create(Library $library, Request $request): LibraryResource
     {
         return new LibraryResource(
             $this->service->createLibrary($library, $request->input('library_data'))
@@ -28,18 +30,19 @@ class LibraryController extends Controller
     }
 
     /**
-     * ライブラリー情報取得
+     * [GET]ライブラリー情報取得
      *
+     * @param Library $library
      * @param Request $request
-     * @return object
+     * @return LibraryResource
      */
-    public function index(Library $library, Request $request): object
+    public function index(Library $library, Request $request): LibraryResource
     {
-        return new LibraryScheduleResource($library);
+        return new LibraryResource($library);
     }
 
     /**
-     * ライブラリー情報更新
+     * [PUT]ライブラリー情報更新
      *
      * @param Request $request
      * @return object

@@ -11,23 +11,38 @@ class LibraryTestCase extends FeatureTestCase
 {
   public array $library_param;
   public array $library_resource;
+  public string $library_uuid;
 
   public function setUp(): void
   {
     parent::setUp();
 
     $this->api_route = '/api/library';
+    $this->library = Library::factory()->create();
+
     $this->library_param = Library::factory()->make()->toArray();
-    
-    $this->library_resource = [
+  }
+
+  public function expectLibraryResource(array $library): array
+  {
+    return [
       'data' => [
-        'id' => $this->library_param['uuid'],
+        'id' => $library['uuid'],
         'attributes' => [
-            'name' => $this->library_param['name'],
-            'location' => $this->library_param['location'],
-            'code' => $this->library_param['code'],
-        ],
-      ],
+          'name' => $library['name'],
+          'location' => $library['location'],
+          'code' => $library['code'],
+        ]
+      ]
     ];
   }
+
+  public function createRequestParamArray(array $library): array
+  {
+    return [
+      'name' => $library['name'],
+      'location' => $library['location'],
+    ];
+  }
+
 }
