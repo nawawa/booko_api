@@ -2,11 +2,10 @@
 
 namespace Tests\Feature\Library;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use App\Models\Library;
 use Tests\Feature\Library\TestCase\LibraryTestCase;
 
-use App\Models\Library;
 
 class LibraryTest extends LibraryTestCase
 {
