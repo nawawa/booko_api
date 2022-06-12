@@ -55,7 +55,7 @@ class LibraryController extends Controller
     }
 
     /**
-     * ライブラリー削除
+     * [DELETE]ライブラリー削除
      *
      * @param Library $library
      * @param Request $request
